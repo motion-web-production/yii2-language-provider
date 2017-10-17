@@ -1,0 +1,37 @@
+{
+  "name": "motion/yii2-language-provider",
+  "description": "Language provider for Yii2",
+  "keywords": ["yii2", "language", "provider", "i18n"],
+  "type": "yii2-extension",
+  "license": "BSD-3-Clause",
+  "support": {
+    "source": "https://github.com/motion-web-production/yii2-language-provider",
+    "issues": "https://github.com/motion-web-production/yii2-language-provider/issues"
+  },
+  "authors": [
+    {
+      "name": "Vladimir Kuprienko",
+      "email": "vldmr.kuprienko@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ],
+  "require": {
+    "yiisoft/yii2": "~2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "motion\\i18n\\": "src/"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0.0-dev"
+    }
+  }
+}
