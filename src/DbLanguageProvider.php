@@ -7,6 +7,7 @@
 
 namespace motion\i18n;
 
+use yii\base\Object;
 use yii\db\Connection;
 use yii\db\Query;
 use yii\di\Instance;
@@ -17,7 +18,7 @@ use yii\di\Instance;
  * @author Vladimir Kuprienko <vldmr.kuprienko@gmail.com>
  * @since 1.0
  */
-class DbLanguageProvider implements LanguageProviderInterface
+class DbLanguageProvider extends Object implements LanguageProviderInterface
 {
     /**
      * Database connection instance.
@@ -81,8 +82,8 @@ class DbLanguageProvider implements LanguageProviderInterface
 
             foreach ($languages as $language) {
                 $this->languages[] = [
-                    'locale' => $language->{$this->localeField},
-                    'label' => $language->{$this->labelField}
+                    'locale' => $language[$this->localeField],
+                    'label' => $language[$this->labelField]
                 ];
             }
         }
@@ -102,7 +103,10 @@ class DbLanguageProvider implements LanguageProviderInterface
                 ->one($this->db);
 
             $this->defaultLanguage = ($language !== null)
-                ? ['locale' => $language->{$this->localeField}, 'label' => $language->{$this->labelField}]
+                ? [
+                    'locale' => $language[$this->localeField],
+                    'label' => $language[$this->labelField]
+                ]
                 : [];
         }
         return $this->defaultLanguage;
