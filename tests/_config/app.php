@@ -1,7 +1,7 @@
 <?php
 return [
     'id' => 'test-app',
-    'class' => \yii\console\Application::class,
+    'class' => \yii\console\Application::className(),
 
     'basePath' => Yii::getAlias('@tests'),
     'vendorPath' => Yii::getAlias('@vendor'),
@@ -11,7 +11,7 @@ return [
 
     'components' => [
         'db' => [
-            'class' => \yii\db\Connection::class,
+            'class' => \yii\db\Connection::className(),
             'dsn' => 'sqlite:' . Yii::getAlias('@tests/_output/test.db'),
             'username' => '',
             'password' => '',

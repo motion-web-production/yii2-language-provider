@@ -66,7 +66,7 @@ class DbLanguageProvider extends Object implements LanguageProviderInterface
      */
     public function init()
     {
-        $this->db = Instance::ensure($this->db, Connection::class);
+        $this->db = Instance::ensure($this->db, Connection::className());
     }
 
     /**
