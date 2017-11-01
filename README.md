@@ -3,6 +3,7 @@ Language provider
 
 Language providers kit for modules based on Yii2 Framework.
 
+[![Build Status](https://travis-ci.org/motion-web-production/yii2-language-provider.svg?branch=master)](https://travis-ci.org/motion-web-production/yii2-language-provider)
 [![Total Downloads](https://poser.pugx.org/motion/yii2-language-provider/downloads)](https://packagist.org/packages/motion/yii2-language-provider)
 [![Latest Stable Version](https://poser.pugx.org/motion/yii2-language-provider/v/stable)](CHANGELOG.md)
 [![Latest Unstable Version](https://poser.pugx.org/motion/yii2-language-provider/v/unstable)](CHANGELOG.md)

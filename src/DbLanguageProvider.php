@@ -1,9 +1,9 @@
 <?php
 /**
-     * @link https://github.com/motion/yii2-language-provider
-     * @copyright Copyright (c) 2017 Motion Web Production
-     * @license BSD 3-Clause License
-     */
+ * @link https://github.com/motion/yii2-language-provider
+ * @copyright Copyright (c) 2017 Motion Web Production
+ * @license BSD 3-Clause License
+ */
 
 namespace motion\i18n;
 
