@@ -36,7 +36,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "motion\\i18n\\tests\\": "src/"
+      "motion\\i18n\\tests\\": "tests/"
     }
   },
   "extra": {

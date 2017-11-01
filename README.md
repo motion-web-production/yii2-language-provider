@@ -24,6 +24,20 @@ or add
 ```
 to the require section of your composer.json.
 
+Tests
+-----
+You can run tests with composer command
+
+```bash
+$ composer test
+```
+
+or using following command
+
+```bash
+$ codecept build && codecept run
+```
+
 Licence
 -------
 [![License](https://poser.pugx.org/motion/yii2-language-provider/license)](LICENSE)

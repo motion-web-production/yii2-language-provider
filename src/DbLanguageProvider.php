@@ -1,9 +1,9 @@
 <?php
 /**
- * @link https://github.com/motion/yii2-language-provider
- * @copyright Copyright (c) 2017 Motion Web Production
- * @license BSD 3-Clause License
- */
+     * @link https://github.com/motion/yii2-language-provider
+     * @copyright Copyright (c) 2017 Motion Web Production
+     * @license BSD 3-Clause License
+     */
 
 namespace motion\i18n;
 
@@ -102,7 +102,7 @@ class DbLanguageProvider extends Object implements LanguageProviderInterface
                 ->where([$this->defaultField => true])
                 ->one($this->db);
 
-            $this->defaultLanguage = ($language !== null)
+            $this->defaultLanguage = ($language !== false)
                 ? [
                     'locale' => $language[$this->localeField],
                     'label' => $language[$this->labelField]
@@ -117,10 +117,10 @@ class DbLanguageProvider extends Object implements LanguageProviderInterface
      */
     public function getLanguageLabel($locale)
     {
-        $languages = $this->getDefaultLanguage();
+        $languages = $this->getLanguages();
         foreach ($languages as $language) {
             if ($language['locale'] == $locale) {
-                return $languages['label'];
+                return $language['label'];
             }
         }
         return null;
