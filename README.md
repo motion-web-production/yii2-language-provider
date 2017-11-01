@@ -8,22 +8,94 @@ Language providers kit for modules based on Yii2 Framework.
 [![Latest Stable Version](https://poser.pugx.org/motion/yii2-language-provider/v/stable)](CHANGELOG.md)
 [![Latest Unstable Version](https://poser.pugx.org/motion/yii2-language-provider/v/unstable)](CHANGELOG.md)
 
+This extension provides one interface for languages storage.
+From the box you can use:
+
 * Configuration language provider
 * Database language provider
-* Base interface for your implementations
+
+If you can create your implementation of language provider you should implement methods
+of `motion\i18n\LanguageProviderInterface` interface.
 
 Installation
 ------------
+
 #### Install package
+
 Run command
+```bash
+$ composer require motion/yii2-language-provider
 ```
-composer require motion/yii2-language-provider
-```
+
 or add
 ```json
 "motion/yii2-language-provider": "dev-master"
 ```
-to the require section of your composer.json.
+to the require section of your `composer.json` file.
+
+Usage
+-----
+
+### Config language provider
+
+| Option | Description | Type | Default |
+|--------|-------------|------|---------|
+| languages | Should contains array with application languages. | array | `[]` |
+| defaultLanguage | Should contains default application language. | array | `[]` |
+
+#### Example
+
+```php
+$config = [
+    'languages' => [
+        [
+            'label' => 'English',
+            'locale' => 'en',
+        ],
+        [
+            'label' => 'Ukrainian',
+            'locale' => 'uk',
+        ],
+        [
+            'label' => 'Russian',
+            'locale' => 'ru',
+        ],
+    ],
+    'defaultLanguage' => [
+        'label' => 'English',
+        'locale' => 'en',
+    ],
+];
+
+$provider = new \motion\i18n\ConfigLanguageProvider($config);
+$provider->getLanguages(); // returns array with languages
+$provider->getDefaultLanguage(); // returns default language in array
+$provider->getLanguageLabel('en'); // returns language label by locale (`English`)
+```
+
+### Db language provider
+
+| Option | Description | Type | Default |
+|--------|-------------|------|---------|
+| db | Database connection instance. | string, array, \yii\db\Connection | `db` |
+| tableName | Name of language entity in database. | string | `language` |
+| localeField | Name of locale field in language entity. | string | `locale` |
+| labelField | Name of label field in language entity. | string | `label` |
+| defaultField | Is default language flag field name in language entity. | string | `is_default` | 
+
+
+#### Example
+
+```php
+$config = [
+    'db' => 'secondDb',
+    'labelField' => 'title',
+];
+$provider = new \motion\i18n\DbLanguageProvider($config);
+$provider->getLanguages(); // returns array with languages
+$provider->getDefaultLanguage(); // returns default language in array
+$provider->getLanguageLabel('uk'); // returns language label by locale
+```
 
 Tests
 -----
