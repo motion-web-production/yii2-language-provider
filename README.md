@@ -1,5 +1,5 @@
-Language provider
-=================
+Language providers kit
+======================
 
 Language providers kit for modules based on Yii2 Framework.
 
