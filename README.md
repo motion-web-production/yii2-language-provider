@@ -30,7 +30,7 @@ $ composer require motion/yii2-language-provider
 
 or add
 ```json
-"motion/yii2-language-provider": "dev-master"
+"motion/yii2-language-provider": "~1.0"
 ```
 to the require section of your `composer.json` file.
 
