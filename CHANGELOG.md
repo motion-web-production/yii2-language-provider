@@ -1,9 +1,10 @@
 Language Provider Change Log
 ============================
 
-2.0.0 Under development
+2.0.0 December 25, 2017
 -----------------------
-* No changes in this release
+* Fix: Code style
+* Enh: Updates to Yii 2.0.13
 
 1.0.0 November 2, 2017
 ----------------------
