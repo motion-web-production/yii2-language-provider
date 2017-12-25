@@ -9,40 +9,43 @@ Language providers kit for modules based on Yii2 Framework.
 [![Latest Stable Version](https://poser.pugx.org/motion/yii2-language-provider/v/stable)](CHANGELOG.md)
 [![Latest Unstable Version](https://poser.pugx.org/motion/yii2-language-provider/v/unstable)](CHANGELOG.md)
 
-This extension provides one interface for languages storage.
+This extension provides one interface for accessing application languages from any storage.
 From the box you can use:
 
 * Configuration language provider
 * Database language provider
 
-If you can create your implementation of language provider you should implement methods
-of `motion\i18n\LanguageProviderInterface` interface.
+If you want to create your implementation of language provider you should implement interface
+`motion\i18n\LanguageProviderInterface`.
 
 Installation
 ------------
 
-#### Install package
+The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
-Run command
-```bash
+Either run
+
+```
 $ composer require motion/yii2-language-provider
 ```
 
 or add
-```json
+
+```
 "motion/yii2-language-provider": "~1.0"
 ```
-to the require section of your `composer.json` file.
+
+to the `require` section of your `composer.json`.
 
 Usage
 -----
 
 ### Config language provider
 
-| Option | Description | Type | Default |
-|--------|-------------|------|---------|
-| languages | Should contains array with application languages. | array | `[]` |
-| defaultLanguage | Should contains default application language. | array | `[]` |
+|Option            |Description                                       |Type  |Default   |
+|------------------|--------------------------------------------------|------|----------|
+|languages         |Should contains list of application languages.    |array |`[]`      |
+|defaultLanguage   |Should contains default application language.     |array |`[]`      |
 
 #### Example
 
@@ -69,20 +72,20 @@ $config = [
 ];
 
 $provider = new \motion\i18n\ConfigLanguageProvider($config);
-$provider->getLanguages(); // returns array with languages
-$provider->getDefaultLanguage(); // returns default language in array
+$provider->getLanguages(); // returns list of languages
+$provider->getDefaultLanguage(); // returns default language
 $provider->getLanguageLabel('en'); // returns language label by locale (`English`)
 ```
 
-### Db language provider
+### Database language provider
 
-| Option | Description | Type | Default |
-|--------|-------------|------|---------|
-| db | Database connection instance. | string, array, \yii\db\Connection | `db` |
-| tableName | Name of language entity in database. | string | `language` |
-| localeField | Name of locale field in language entity. | string | `locale` |
-| labelField | Name of label field in language entity. | string | `label` |
-| defaultField | Is default language flag field name in language entity. | string | `is_default` | 
+|Option         |Description                                         |Type                                   |Default        |
+|---------------|----------------------------------------------------|---------------------------------------|---------------|
+|db             |Database connection instance.                       |string, array, `\yii\db\Connection`    |`db`           |
+|tableName      |Name of language entity in database.                |string                                 |`language`     |
+|localeField    |Name of locale field in language entity.            |string                                 |`locale`       |
+|labelField     |Name of label field in language entity.             |string                                 |`label`        |
+|defaultField   |Name of field in table with default language flag.  |string                                 |`is_default`   | 
 
 
 #### Example
@@ -93,8 +96,8 @@ $config = [
     'labelField' => 'title',
 ];
 $provider = new \motion\i18n\DbLanguageProvider($config);
-$provider->getLanguages(); // returns array with languages
-$provider->getDefaultLanguage(); // returns default language in array
+$provider->getLanguages(); // returns list of languages
+$provider->getDefaultLanguage(); // returns default language
 $provider->getLanguageLabel('uk'); // returns language label by locale
 ```
 
@@ -102,13 +105,13 @@ Tests
 -----
 You can run tests with composer command
 
-```bash
+```
 $ composer test
 ```
 
 or using following command
 
-```bash
+```
 $ codecept build && codecept run
 ```
 
