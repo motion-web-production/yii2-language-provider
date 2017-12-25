@@ -10,7 +10,7 @@ namespace motion\i18n\tests\unit;
 use motion\i18n\DbLanguageProvider;
 
 /**
- * Test case for db language provider.
+ * Test case for database language provider.
  *
  * @author Vladimir Kuprienko <vldmr.kuprienko@gmail.com>
  * @since 1.0

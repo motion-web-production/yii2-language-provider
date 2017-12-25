@@ -8,7 +8,7 @@
 namespace motion\i18n;
 
 /**
- * Interface for language providers.
+ * Interface for language provider.
  *
  * @author Vladimir Kuprienko <vldmr.kuprienko@gmail.com>
  * @since 1.0
@@ -16,7 +16,11 @@ namespace motion\i18n;
 interface LanguageProviderInterface
 {
     /**
-     * Method should returns array with languages.
+     * Method should returns list of languages in following format:
+     * each item of this list it's array with `label` and `locale` keys,
+     * in `label` key should be a language label for displaying in view,
+     * in `locale` key should be a language locale. It is recommended that you
+     * use [IETF language tags](http://en.wikipedia.org/wiki/IETF_language_tag).
      *
      * @example
      * ```php
@@ -25,7 +29,7 @@ interface LanguageProviderInterface
      *          'label' => 'English',
      *          'locale' => 'en-US',
      *      ],
-     *      // ...
+     *      // other languages ...
      * ];
      * ```
      * @return array
@@ -33,7 +37,7 @@ interface LanguageProviderInterface
     public function getLanguages();
 
     /**
-     * Method should returns array with default language.
+     * Method should returns a default language of application.
      *
      * @example
      * ```php
@@ -47,9 +51,9 @@ interface LanguageProviderInterface
     public function getDefaultLanguage();
 
     /**
-     * Method should returns label by language locale.
+     * Method should returns label for concrete language.
      *
-     * @param string $locale
+     * @param string $locale Language locale.
      * @return mixed
      */
     public function getLanguageLabel($locale);

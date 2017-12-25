@@ -19,13 +19,13 @@ use yii\base\InvalidConfigException;
 class ConfigLanguageProvider extends Object implements LanguageProviderInterface
 {
     /**
-     * Contains all languages.
+     * Application languages list.
      *
      * @var array
      */
     public $languages = [];
     /**
-     * Contains one default language.
+     * Default application language.
      *
      * @var array
      */
@@ -33,15 +33,17 @@ class ConfigLanguageProvider extends Object implements LanguageProviderInterface
 
 
     /**
-     * @inheritdoc
+     * Check whether provider config is correct.
+     *
+     * @throws InvalidConfigException
      */
     public function init()
     {
         if (empty($this->languages)) {
-            throw new InvalidConfigException('\'languages\' field cannot be empty');
+            throw new InvalidConfigException("'languages' field cannot be empty");
         }
         if (empty($this->defaultLanguage)) {
-            throw new InvalidConfigException('\'defaultLanguage\' field cannot be empty');
+            throw new InvalidConfigException("defaultLanguage' field cannot be empty");
         }
     }
 
@@ -71,6 +73,7 @@ class ConfigLanguageProvider extends Object implements LanguageProviderInterface
                 return $language['label'];
             }
         }
+
         return null;
     }
 }

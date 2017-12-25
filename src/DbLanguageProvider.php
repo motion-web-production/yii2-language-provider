@@ -45,24 +45,26 @@ class DbLanguageProvider extends Object implements LanguageProviderInterface
      */
     public $labelField = 'label';
     /**
-     * Is default language flag field name in table.
+     * Name of field in table with default language flag.
      *
      * @var string
      */
     public $defaultField = 'is_default';
 
     /**
-     * @var array
+     * @var array Application languages list.
      */
     protected $languages = [];
     /**
-     * @var array
+     * @var array Default application language.
      */
     protected $defaultLanguage = [];
 
 
     /**
-     * @inheritdoc
+     * Get database connection instance.
+     *
+     * @throws \yii\base\InvalidConfigException
      */
     public function init()
     {
@@ -87,6 +89,7 @@ class DbLanguageProvider extends Object implements LanguageProviderInterface
                 ];
             }
         }
+
         return $this->languages;
     }
 
@@ -102,13 +105,14 @@ class DbLanguageProvider extends Object implements LanguageProviderInterface
                 ->where([$this->defaultField => true])
                 ->one($this->db);
 
-            $this->defaultLanguage = ($language !== false)
-                ? [
+            if (false !== $language) {
+                $this->defaultLanguage = [
                     'locale' => $language[$this->localeField],
                     'label' => $language[$this->labelField]
-                ]
-                : [];
+                ];
+            }
         }
+
         return $this->defaultLanguage;
     }
 
@@ -117,12 +121,12 @@ class DbLanguageProvider extends Object implements LanguageProviderInterface
      */
     public function getLanguageLabel($locale)
     {
-        $languages = $this->getLanguages();
-        foreach ($languages as $language) {
+        foreach ($this->getLanguages() as $language) {
             if ($language['locale'] == $locale) {
                 return $language['label'];
             }
         }
+
         return null;
     }
 }
