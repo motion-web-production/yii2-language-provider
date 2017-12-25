@@ -7,7 +7,7 @@
 
 namespace motion\i18n;
 
-use yii\base\Object;
+use yii\base\BaseObject;
 use yii\db\Connection;
 use yii\db\Query;
 use yii\di\Instance;
@@ -18,7 +18,7 @@ use yii\di\Instance;
  * @author Vladimir Kuprienko <vldmr.kuprienko@gmail.com>
  * @since 1.0
  */
-class DbLanguageProvider extends Object implements LanguageProviderInterface
+class DbLanguageProvider extends BaseObject implements LanguageProviderInterface
 {
     /**
      * Database connection instance.

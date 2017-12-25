@@ -7,7 +7,7 @@
 
 namespace motion\i18n;
 
-use yii\base\Object;
+use yii\base\BaseObject;
 use yii\base\InvalidConfigException;
 
 /**
@@ -16,7 +16,7 @@ use yii\base\InvalidConfigException;
  * @author Vladimir Kuprienko <vldmr.kuprienko@gmail.com>
  * @since 1.0
  */
-class ConfigLanguageProvider extends Object implements LanguageProviderInterface
+class ConfigLanguageProvider extends BaseObject implements LanguageProviderInterface
 {
     /**
      * Application languages list.
