@@ -9,9 +9,9 @@ namespace motion\i18n\tests\unit\helpers;
 
 use Yii;
 use motion\i18n\tests\unit\TestCase;
-use motion\i18n\LanguageProviderInterface;
 use motion\i18n\ConfigLanguageProvider;
 use motion\i18n\helpers\LanguageHelper;
+use yii\helpers\ArrayHelper;
 
 /**
  * Test case for language helper.
@@ -40,8 +40,8 @@ class LanguageHelperTest extends TestCase
      */
     protected function _before()
     {
-        Yii::$container->set(LanguageProviderInterface::class, [
-            'class' => ConfigLanguageProvider::class,
+        Yii::$container->set('motion\i18n\LanguageProviderInterface', [
+            'class' => ConfigLanguageProvider::className(),
             'languages' => $this->languages,
             'defaultLanguage' => $this->defaultLanguage,
         ]);
@@ -66,6 +66,9 @@ class LanguageHelperTest extends TestCase
 
     public function testGetLocales()
     {
-        $this->assertSame(array_column($this->languages, 'locale'), LanguageHelper::getInstance()->getLocales());
+        $this->assertSame(
+            ArrayHelper::getColumn($this->languages, 'locale'),
+            LanguageHelper::getInstance()->getLocales()
+        );
     }
 }

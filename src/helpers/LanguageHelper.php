@@ -9,7 +9,6 @@ namespace motion\i18n\helpers;
 
 use Yii;
 use yii\helpers\ArrayHelper;
-use motion\i18n\LanguageProviderInterface;
 
 /**
  * Helper for making work with language provider easily.
@@ -20,7 +19,7 @@ use motion\i18n\LanguageProviderInterface;
 class LanguageHelper
 {
     /**
-     * @var LanguageProviderInterface
+     * @var \motion\i18n\LanguageProviderInterface
      */
     protected $provider;
 
@@ -42,7 +41,7 @@ class LanguageHelper
     {
         if (null === self::$_instance) {
             self::$_instance = new self();
-            self::$_instance->provider = Yii::$container->get(LanguageProviderInterface::class);
+            self::$_instance->provider = Yii::$container->get('motion\i18n\LanguageProviderInterface');
         }
 
         return self::$_instance;

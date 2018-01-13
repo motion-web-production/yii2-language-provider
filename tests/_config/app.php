@@ -1,4 +1,5 @@
 <?php
+
 return [
     'id' => 'test-app',
     'class' => \yii\console\Application::className(),
