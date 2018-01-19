@@ -1,6 +1,11 @@
 Language Provider Change Log
 ============================
 
+2.1.0 Under development
+-----------------------
+* Enh: Created helper for language providers
+* Fix: Removed unused packages `codeception/specify` and `codeception/verify`
+
 2.0.0 December 25, 2017
 -----------------------
 * Fix: Code style
