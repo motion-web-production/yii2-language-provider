@@ -32,6 +32,7 @@ interface LanguageProviderInterface
      *      // other languages ...
      * ];
      * ```
+     *
      * @return array
      */
     public function getLanguages();
@@ -46,6 +47,7 @@ interface LanguageProviderInterface
      *      'locale' => 'en-US',
      * ];
      * ```
+     *
      * @return array
      */
     public function getDefaultLanguage();
@@ -54,6 +56,7 @@ interface LanguageProviderInterface
      * Method should returns label for concrete language.
      *
      * @param string $locale Language locale.
+     *
      * @return mixed
      */
     public function getLanguageLabel($locale);
