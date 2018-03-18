@@ -1,6 +1,6 @@
 {
   "name": "motion/yii2-language-provider",
-  "description": "Language providers kit for modules based on Yii2 Framework",
+  "description": "This package provides interface for language provider for Yii2 Framework",
   "keywords": ["yii2", "language", "provider", "i18n"],
   "type": "yii2-extension",
   "license": "BSD-3-Clause",
@@ -39,7 +39,7 @@
   },
   "extra": {
     "branch-alias": {
-      "dev-master": "2.0.x-dev"
+      "dev-master": "2.1.x-dev"
     }
   },
   "scripts": {
