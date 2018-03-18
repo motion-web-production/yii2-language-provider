@@ -1,7 +1,9 @@
-Language providers kit
-======================
+Language provider interface
+===========================
 
-Language providers kit for modules based on Yii2 Framework.
+This package provides interface for language provider for accessing application languages from any storage for Yii2 Framework.
+It's allows to you create multi-language modules for using in Yii2 based application.
+As example of integration to module you can see [yii2-email-template](https://github.com/yiimaker/yii2-email-templates) extension.
 
 [![Build Status](https://travis-ci.org/motion-web-production/yii2-language-provider.svg?branch=master)](https://travis-ci.org/motion-web-production/yii2-language-provider)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/motion-web-production/yii2-language-provider/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/motion-web-production/yii2-language-provider/?branch=master)
@@ -9,11 +11,10 @@ Language providers kit for modules based on Yii2 Framework.
 [![Latest Stable Version](https://poser.pugx.org/motion/yii2-language-provider/v/stable)](CHANGELOG.md)
 [![Latest Unstable Version](https://poser.pugx.org/motion/yii2-language-provider/v/unstable)](CHANGELOG.md)
 
-This extension provides one interface for accessing application languages from any storage.
 From the box you can use:
 
-* Configuration language provider
-* Database language provider
+* [Config language provider](#config-language-provider)
+* [Database language provider](#database-language-provider)
 
 If you want to create your implementation of language provider you should implement interface
 `motion\i18n\LanguageProviderInterface`.
@@ -32,7 +33,7 @@ $ composer require motion/yii2-language-provider
 or add
 
 ```
-"motion/yii2-language-provider": "~2.0"
+"motion/yii2-language-provider": "~2.1"
 ```
 
 to the `require` section of your `composer.json`.
@@ -121,5 +122,5 @@ Licence
 
 This project is released under the terms of the BSD-3-Clause [license](LICENSE).
 
-Copyright (c) 2017, Motion Web Production
+Copyright (c) 2017-2018, Motion Web Production
 
