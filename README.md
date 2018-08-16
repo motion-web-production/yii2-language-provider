@@ -5,11 +5,11 @@ This package provides interface for language provider for accessing application 
 It's allows to you create multi-language modules for using in Yii2 based application.
 As example of integration to module you can see [yii2-email-template](https://github.com/yiimaker/yii2-email-templates) extension.
 
+[![Latest Stable Version](https://img.shields.io/packagist/v/motion/yii2-language-provider.svg)](CHANGELOG.md)
+[![Monthly Downloads](https://img.shields.io/packagist/dm/motion/yii2-language-provider.svg)](https://packagist.org/packages/motion/yii2-language-provider)
+[![Total Downloads](https://img.shields.io/packagist/dt/motion/yii2-language-provider.svg)](https://packagist.org/packages/motion/yii2-language-provider)
 [![Build Status](https://travis-ci.org/motion-web-production/yii2-language-provider.svg?branch=master)](https://travis-ci.org/motion-web-production/yii2-language-provider)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/motion-web-production/yii2-language-provider/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/motion-web-production/yii2-language-provider/?branch=master)
-[![Total Downloads](https://poser.pugx.org/motion/yii2-language-provider/downloads)](https://packagist.org/packages/motion/yii2-language-provider)
-[![Latest Stable Version](https://poser.pugx.org/motion/yii2-language-provider/v/stable)](CHANGELOG.md)
-[![Latest Unstable Version](https://poser.pugx.org/motion/yii2-language-provider/v/unstable)](CHANGELOG.md)
 
 From the box you can use:
 
@@ -96,6 +96,7 @@ $config = [
     'db' => 'secondDb',
     'labelField' => 'title',
 ];
+
 $provider = new \motion\i18n\DbLanguageProvider($config);
 $provider->getLanguages(); // returns list of languages
 $provider->getDefaultLanguage(); // returns default language
@@ -104,6 +105,7 @@ $provider->getLanguageLabel('uk'); // returns language label by locale
 
 Tests
 -----
+
 You can run tests with composer command
 
 ```
@@ -118,7 +120,8 @@ $ codecept build && codecept run
 
 Licence
 -------
-[![License](https://poser.pugx.org/motion/yii2-language-provider/license)](LICENSE)
+
+[![License](https://img.shields.io/github/license/motion-web-production/yii2-language-provider.svg)](LICENSE)
 
 This project is released under the terms of the BSD-3-Clause [license](LICENSE).
 
